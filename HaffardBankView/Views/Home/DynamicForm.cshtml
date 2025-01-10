@@ -1,4 +1,4 @@
-﻿@using HaffardBankWebApp.Services
+﻿@using HaffardBankService.Models
 @model AccountFieldsDto
 @{
     ViewData["Title"] = "Dynamic Form for Account";
@@ -7,8 +7,10 @@
 <h2>Dynamic Form for Account</h2>
 
 <form method="post" action="/Form/SubmitDynamicData">
+    <label for="AccountNumber">AccountNumber</label>
     <input type="text" class="form-control" readonly id="AccountNumber" name="AccountNumber" value="@Model.AccountNumber" />
-    <input type="text" class="form-control" readonly id="Industry" name="Industry" value="@Model.Industry"/>
+    <label for="Industry">Industry</label>
+    <input type="text" class="form-control" readonly id="Industry" name="Industry" value="@Model.Industry" />
 
     @foreach (var field in Model.Fields)
     {

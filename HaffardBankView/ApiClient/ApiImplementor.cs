@@ -13,7 +13,7 @@ namespace HaffardBankWebApp.ApiClient
         {
             client = httpClient;
         }
-        public async Task<T?> PostApiServiceWithHeaders<T>(string apiurl, Object model, Dictionary<string, string>? headers = null)
+        public async Task<(T?, bool)> PostApiServiceWithHeaders<T>(string apiurl, Object model, Dictionary<string, string>? headers = null)
         {
             T? resp = default;
             try
@@ -37,8 +37,7 @@ namespace HaffardBankWebApp.ApiClient
 
                 AppLogManager.LogInfo("(Response)" + apiurl, responseContent);
                 resp = string.IsNullOrWhiteSpace(responseContent) ? resp : JsonConvert.DeserializeObject<T>(responseContent);
-
-                return resp;
+                return (resp, response.IsSuccessStatusCode);
             }
             catch (TimeoutException)
             {
@@ -48,10 +47,10 @@ namespace HaffardBankWebApp.ApiClient
             {
                 AppLogManager.LogException($"{apiurl}", ex);
             }
-            return resp;
+            return (resp,false);
         }
 
-        public async Task<T?> GetApiServiceWithHeaders<T>(string apiurlAndParam, Dictionary<string, string>? headers = null)
+        public async Task<(T?, bool)> GetApiServiceWithHeaders<T>(string apiurlAndParam, Dictionary<string, string>? headers = null)
         {
             T? resp = default;
             try
@@ -73,12 +72,12 @@ namespace HaffardBankWebApp.ApiClient
                 AppLogManager.LogInfo("(Response)" + apiurlAndParam, responseContent);
                 resp = string.IsNullOrWhiteSpace(responseContent) ? resp : JsonConvert.DeserializeObject<T>(responseContent);
 
-                return resp;
+                return (resp, response.IsSuccessStatusCode);
             }
             catch (Exception ex)
             {
                 AppLogManager.LogException("(ApiError)" + apiurlAndParam, ex);
-                return resp;
+                return (resp, false);
             }
         }
     }

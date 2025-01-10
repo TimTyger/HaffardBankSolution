@@ -1,5 +1,5 @@
+using HaffardBankService.Services;
 using HaffardBankWebApp.ApiClient;
-using HaffardBankWebApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
@@ -10,7 +10,7 @@ builder.Services.AddHttpClient<ApiImplementor>(client =>
     client.Timeout = TimeSpan.FromSeconds(30); // Set timeout for requests
 });
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<ILookupService, LookupService>();
+builder.Services.AddScoped<ILookupService, HaffardBankWebApp.Services.LookupService>();
 
 var app = builder.Build();
 

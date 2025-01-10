@@ -1,5 +1,6 @@
-﻿using HaffardBankWebApp.ApiClient;
-using Microsoft.Extensions.Options;
+﻿using HaffardBankService.Models;
+using HaffardBankService.Services;
+using HaffardBankWebApp.ApiClient;
 
 namespace HaffardBankWebApp.Services
 {
@@ -14,10 +15,14 @@ namespace HaffardBankWebApp.Services
         }
         public async Task<AccountFieldsDto?> GetFields(string accountNo)
         {
-            var getfieldsUrl = _config.GetSection("GetFieldsUrl").Value??"";
+            var getfieldsUrl = _config.GetValue<string>("GetFieldsUrl")??"";
             var url = string.Format(getfieldsUrl!, accountNo);
             var response = await _apiImplementor.GetApiServiceWithHeaders<AccountFieldsDto>(url);
-            return response;
+            if (response.Item2)
+            {
+                return response.Item1;
+            }
+            return null;
         }
     }
 }

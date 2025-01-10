@@ -1,4 +1,10 @@
-﻿namespace HaffardBankWebApp.Services
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace HaffardBankService.Models
 {
     public class AccountFieldsDto
     {
@@ -11,7 +17,7 @@
     {
         public string? FieldName { get; set; }
         public string? FieldType { get; set; }
-        public string? FieldValue { get; set; }
+        //public string? FieldValue { get; set; }
 
     }
 }
