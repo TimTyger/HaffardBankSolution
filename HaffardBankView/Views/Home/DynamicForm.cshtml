@@ -20,6 +20,15 @@
             {
                 <input type="@field.FieldType" class="form-control" id="@field.FieldName" name="@field.FieldName" />
             }
+            @* else if (field.FieldType == "dropdown" && field.Options != null)
+            {
+                <select class="form-control" id="@field.FieldName" name="@field.FieldName">
+                    @foreach (var option in field.Options)
+                    {
+                        <option value="@option">@option</option>
+                    }
+                </select>
+            } *@
             else
             {
                 <p class="text-danger">Unsupported field type: @field.FieldType</p>
