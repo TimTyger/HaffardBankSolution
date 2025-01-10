@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<h2>Enter Account Number</h2>
+
+<form method="get" action="/Home/GetDynamicFields">
+    <div class="form-group">
+        <label for="AccountNumber">Account Number</label>
+        <input type="text" maxlength="10" class="form-control" id="AccountNumber" name="accountNumber" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Fetch Fields</button>
+</form>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>

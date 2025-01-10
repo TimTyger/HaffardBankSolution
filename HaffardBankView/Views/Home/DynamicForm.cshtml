@@ -1,0 +1,32 @@
+﻿@using HaffardBankWebApp.Services
+@model AccountFieldsDto
+@{
+    ViewData["Title"] = "Dynamic Form for Account";
+}
+
+<h2>Dynamic Form for Account</h2>
+
+<form method="post" action="/Form/SubmitDynamicData">
+    <input type="text" class="form-control" readonly id="AccountNumber" name="AccountNumber" value="@Model.AccountNumber" />
+    <input type="text" class="form-control" readonly id="Industry" name="Industry" value="@Model.Industry"/>
+
+    @foreach (var field in Model.Fields)
+    {
+        <div class="form-group">
+            <label for="@field.FieldName">@field.FieldName</label>
+            @if (field.FieldType == "text" || field.FieldType == "number" || field.FieldType == "date")
+            {
+                <input type="@field.FieldType" class="form-control" id="@field.FieldName" name="@field.FieldName" />
+            }
+            else
+            {
+                <p class="text-danger">Unsupported field type: @field.FieldType</p>
+            }
+        </div>
+    }
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>

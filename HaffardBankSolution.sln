@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaffardBankApi", "HaffardBankSolution\HaffardBankApi.csproj", "{4555C2BA-DA01-4A33-BD7C-EB69A4F2C62E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaffardBankWebApp", "HaffardBankView\HaffardBankWebApp.csproj", "{E216C8FB-35DC-4931-B0DB-5E7CF4E6848E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4555C2BA-DA01-4A33-BD7C-EB69A4F2C62E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4555C2BA-DA01-4A33-BD7C-EB69A4F2C62E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4555C2BA-DA01-4A33-BD7C-EB69A4F2C62E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4555C2BA-DA01-4A33-BD7C-EB69A4F2C62E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E216C8FB-35DC-4931-B0DB-5E7CF4E6848E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E216C8FB-35DC-4931-B0DB-5E7CF4E6848E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E216C8FB-35DC-4931-B0DB-5E7CF4E6848E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E216C8FB-35DC-4931-B0DB-5E7CF4E6848E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
