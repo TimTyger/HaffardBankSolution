@@ -32,6 +32,12 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+            {
+                <div class="alert alert-danger">
+                    @ViewBag.ErrorMessage
+                </div>
+            }
             @RenderBody()
         </main>
     </div>

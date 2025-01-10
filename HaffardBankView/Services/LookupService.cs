@@ -14,8 +14,9 @@ namespace HaffardBankWebApp.Services
         }
         public async Task<AccountFieldsDto?> GetFields(string accountNo)
         {
-            var getfieldsUrl = _config.GetSection("GetFieldsUrl").Value;
-            var response = await _apiImplementor.GetApiServiceWithHeaders<AccountFieldsDto>(accountNo);
+            var getfieldsUrl = _config.GetSection("GetFieldsUrl").Value??"";
+            var url = string.Format(getfieldsUrl!, accountNo);
+            var response = await _apiImplementor.GetApiServiceWithHeaders<AccountFieldsDto>(url);
             return response;
         }
     }
